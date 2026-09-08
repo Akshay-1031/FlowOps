@@ -11,9 +11,14 @@ const helmet = require("helmet");
 const app = express();
 app.use(helmet());
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://flow-ops-iota.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
   })
 );
 
