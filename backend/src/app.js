@@ -26,6 +26,13 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/projects", taskRoutes);
 app.use("/api/ai", aiRoutes);
 
+app.get("/api/debug", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "Express routes are reachable",
+  });
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({
