@@ -19,6 +19,11 @@ app.use(
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log("INCOMING REQUEST:", req.method, req.originalUrl);
+  next();
+});
+
 // Routes
 app.use("/api", healthRoutes);
 app.use("/api/auth", authRoutes);
