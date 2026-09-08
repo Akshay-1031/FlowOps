@@ -8,6 +8,7 @@ import Tasks from "./pages/Tasks";
 import AIInsights from "./pages/AIInsights";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />

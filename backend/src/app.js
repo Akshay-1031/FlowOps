@@ -19,23 +19,12 @@ app.use(
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log("INCOMING REQUEST:", req.method, req.originalUrl);
-  next();
-});
-
 // Routes
 app.use("/api", healthRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/projects", taskRoutes);
 app.use("/api/ai", aiRoutes);
-
-console.log("=== FLOWOPS ROUTES REGISTERED ===");
-console.log("Health: /api/health");
-console.log("Auth: /api/auth/*");
-console.log("Projects: /api/projects/*");
-console.log("AI: /api/ai/*");
 
 app.get("/api/debug", (req, res) => {
   res.json({

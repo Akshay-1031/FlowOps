@@ -1,5 +1,4 @@
 const { Temporal } = require("@js-temporal/polyfill");
-
 globalThis.Temporal = Temporal;
 
 const app = require("./app");
