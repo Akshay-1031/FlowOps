@@ -13,8 +13,8 @@ app.use(helmet());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://flow-ops-iota.vercel.app",
-];
+  process.env.FRONTEND_URL,
+].filter(Boolean);
 
 app.use(
   cors({
