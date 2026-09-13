@@ -12,9 +12,11 @@ import { motion } from "motion/react";
 
 import { getProjects } from "../services/projectService";
 import { getTasks } from "../services/taskService";
+import { useAuth } from "../context/AuthContext";
 
 function Dashboard() {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const [projects, setProjects] = useState([]);
   const [tasks, setTasks] = useState([]);
@@ -127,7 +129,7 @@ function Dashboard() {
           </p>
 
           <h1 className="mt-1 text-3xl font-bold tracking-tight">
-            Good morning, Akshay
+            Good morning, {user?.name || "there"}
           </h1>
 
           <p className="mt-2 text-sm text-slate-500">
