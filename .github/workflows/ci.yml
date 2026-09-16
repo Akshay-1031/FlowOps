@@ -48,4 +48,10 @@ jobs:
           pkg-types: os 
             
       - name: Audit production dependencies
-        run: npm audit --omit=dev --audit-level=high    
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Deploy to Render
+        if: github.ref == 'refs/heads/main' && success()
+        run: curl -fsS -X POST "$RENDER_DEPLOY_HOOK_URL"
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}    
